@@ -48,6 +48,8 @@ import {
   RoleSpecificDashboardTemplate,
   SettingsPageTemplate,
 } from "../templates";
+import { ReferenceStylePreview } from "./ReferenceStylePreview";
+import "./reference-theme.css";
 
 type DemoRow = {
   id: number;
@@ -82,7 +84,7 @@ const demoColumns = createTableColumns(c, [
   },
 ]);
 
-const sections = ["Workbench", "Forms", "Feedback", "Utilities", "Templates"] as const;
+const sections = ["Workbench", "Forms", "Feedback", "Utilities", "Templates", "Reference"] as const;
 
 export function ExampleWebApp() {
   const [activeSection, setActiveSection] = React.useState<(typeof sections)[number]>("Workbench");
@@ -288,6 +290,16 @@ export function ExampleWebApp() {
               <div className="border border-slate-200"><RecordCreateEditPageTemplate /></div>
               <div className="border border-slate-200"><SettingsPageTemplate /></div>
               <div className="border border-slate-200"><AdaptiveListPageTemplate /></div>
+            </div>
+          ) : null}
+
+          {activeSection === "Reference" ? (
+            <div className="space-y-6 p-6">
+              <SectionHeader
+                title="Reference HTML Style Preview"
+                description="Optional palette + styling example derived from your reference HTML. Baseline system remains unchanged."
+              />
+              <ReferenceStylePreview />
             </div>
           ) : null}
         </main>
