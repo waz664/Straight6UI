@@ -185,7 +185,7 @@ export function ExampleWebApp() {
                 <DetailPanel open={selectedRows.length > 0}>
                   <div className="p-4 text-sm">
                     <p className="font-semibold">Detail Panel</p>
-                    <p className="mt-1 text-slate-600">Selected row ids: {selectedRows.join(\", \")}</p>
+                    <p className="mt-1 text-slate-600">Selected row ids: {selectedRows.join(", ")}</p>
                   </div>
                 </DetailPanel>
               </div>
